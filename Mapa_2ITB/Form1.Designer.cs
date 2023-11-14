@@ -41,6 +41,7 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.BackColor = SystemColors.ControlLightLight;
             flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel1.Location = new Point(1056, 12);

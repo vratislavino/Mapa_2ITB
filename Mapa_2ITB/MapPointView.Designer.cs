@@ -81,13 +81,14 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BorderStyle = BorderStyle.Fixed3D;
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(label1);
             Name = "MapPointView";
-            Size = new Size(360, 171);
+            Size = new Size(356, 167);
             ResumeLayout(false);
             PerformLayout();
         }

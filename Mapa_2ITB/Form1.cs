@@ -17,7 +17,7 @@ namespace Mapa_2ITB
                 var mapPointView = new MapPointView();
                 mapPointView.Setup(mapPoint);
                 flowLayoutPanel1.Controls.Add(mapPointView);
-            
+
             });
         }
     }
