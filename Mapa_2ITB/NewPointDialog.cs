@@ -12,12 +12,14 @@ namespace Mapa_2ITB
 {
     public partial class NewPointDialog : Form
     {
+        public MapPoint MapPoint = null;
+
         public NewPointDialog() {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            if(string.IsNullOrEmpty(textBox1.Text)) {
+            if (string.IsNullOrEmpty(textBox1.Text)) {
                 MessageBox.Show("Nevyplnil jsi název!");
                 return;
             }
@@ -27,11 +29,19 @@ namespace Mapa_2ITB
                 return;
             }
 
-            if(numericUpDown1.Value == 0) {
+            if (numericUpDown1.Value == 0) {
                 MessageBox.Show("Nevyplnil jsi hodnocení!");
                 return;
             }
 
+            // vše ok
+            MapPoint = new MapPoint() {
+                name = textBox1.Text,
+                rating = (int) numericUpDown1.Value,
+                description = richTextBox1.Text,
+            };
+
+            this.Close();
         }
     }
 }

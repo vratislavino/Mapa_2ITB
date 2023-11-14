@@ -10,9 +10,9 @@ namespace Mapa_2ITB
     public class MapPoint
     {
         public Point point;
-        private string name;
-        private int rating;
-        private string description;
+        public string name;
+        public int rating;
+        public string description;
 
         private const int POINT_SIZE = 15;
         private Color pointColor = Color.White;

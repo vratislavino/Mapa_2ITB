@@ -53,6 +53,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(440, 45);
             textBox1.TabIndex = 1;
+            textBox1.Text = "test název";
             // 
             // label2
             // 
@@ -78,9 +79,11 @@
             // 
             numericUpDown1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             numericUpDown1.Location = new Point(172, 73);
+            numericUpDown1.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(440, 45);
             numericUpDown1.TabIndex = 6;
+            numericUpDown1.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
             // richTextBox1
             // 
@@ -88,11 +91,10 @@
             richTextBox1.Name = "richTextBox1";
             richTextBox1.Size = new Size(440, 177);
             richTextBox1.TabIndex = 7;
-            richTextBox1.Text = "";
+            richTextBox1.Text = "Testovací popis";
             // 
             // button1
             // 
-            button1.DialogResult = DialogResult.OK;
             button1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             button1.Location = new Point(465, 318);
             button1.Name = "button1";

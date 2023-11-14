@@ -12,13 +12,18 @@ namespace Mapa_2ITB
 {
     public partial class Map : UserControl
     {
+        public event Action MapPointsChanged;
+
         List<MapPoint> mapPoints = new List<MapPoint>();
+
+        public List<MapPoint> MapPoints => mapPoints;
 
         public Map() {
             InitializeComponent();
         }
 
         private void Map_Load(object sender, EventArgs e) {
+
             BackgroundImage = Image.FromFile("images/mapa2.jpg");
         }
 
@@ -29,9 +34,14 @@ namespace Mapa_2ITB
                 NewPointDialog npd = new NewPointDialog();
 
                 var res = npd.ShowDialog();
-                if(res == DialogResult.OK) {
-                    MapPoint newPoint = new MapPoint() { point = e.Location };
-                    mapPoints.Add(newPoint);
+
+                if(npd.MapPoint == null) {
+                    // cancel
+                } else {
+                    npd.MapPoint.point = e.Location;
+                    mapPoints.Add(npd.MapPoint);
+
+                    MapPointsChanged?.Invoke();
                 }
 
                 Refresh();
