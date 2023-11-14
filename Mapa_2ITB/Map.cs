@@ -18,6 +18,8 @@ namespace Mapa_2ITB
 
         public List<MapPoint> MapPoints => mapPoints;
 
+        private MapPoint selectedMapPoint = null;
+
         public Map() {
             InitializeComponent();
         }
@@ -49,9 +51,19 @@ namespace Mapa_2ITB
         }
 
         private void Map_Paint(object sender, PaintEventArgs e) {
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             foreach (var mapPoint in mapPoints) {
                 mapPoint.Draw(e.Graphics);
             }
+        }
+
+        internal void SelectMapPoint(MapPoint pointToSelect) {
+            if (selectedMapPoint != null)
+                selectedMapPoint.isSelected = false;
+            
+            selectedMapPoint = pointToSelect;
+            selectedMapPoint.isSelected = true;
+            Refresh();
         }
     }
 }

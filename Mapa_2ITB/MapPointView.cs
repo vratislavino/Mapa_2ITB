@@ -12,6 +12,9 @@ namespace Mapa_2ITB
 {
     public partial class MapPointView : UserControl
     {
+        public event Action<MapPoint> DeleteRequested;
+        public event Action<MapPoint> SelectRequested;
+
         MapPoint mapPoint;
 
         public MapPointView() {
@@ -30,6 +33,14 @@ namespace Mapa_2ITB
                 pct.Size = new Size(50, 50);
                 flowLayoutPanel1.Controls.Add(pct);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            DeleteRequested?.Invoke(mapPoint);
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            SelectRequested?.Invoke(mapPoint);
         }
     }
 }

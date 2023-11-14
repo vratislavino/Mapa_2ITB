@@ -17,7 +17,13 @@ namespace Mapa_2ITB
         private const int POINT_SIZE = 15;
         private Color pointColor = Color.White;
 
+        public bool isSelected = false;
+
         public void Draw(Graphics g) {
+            if(isSelected) {
+                g.FillEllipse(Brushes.SkyBlue, point.X - POINT_SIZE, point.Y - POINT_SIZE, 2 * POINT_SIZE, 2 * POINT_SIZE);
+            }
+
             g.DrawEllipse(new Pen(pointColor, 4f), point.X - POINT_SIZE, point.Y - POINT_SIZE, 2 * POINT_SIZE, 2 * POINT_SIZE);
         }
     }

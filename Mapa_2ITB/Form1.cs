@@ -2,8 +2,6 @@ namespace Mapa_2ITB
 {
     public partial class Form1 : Form
     {
-        // Vysvìtlit Observer -> event
-
         public Form1() {
             InitializeComponent();
             map1.MapPointsChanged += UpdateMapPoints;
@@ -16,9 +14,20 @@ namespace Mapa_2ITB
 
                 var mapPointView = new MapPointView();
                 mapPointView.Setup(mapPoint);
+                mapPointView.DeleteRequested += OnDeleteRequested;
+                mapPointView.SelectRequested += OnSelectRequested;
                 flowLayoutPanel1.Controls.Add(mapPointView);
-
             });
+        }
+
+        private void OnSelectRequested(MapPoint pointToSelect) {
+            map1.SelectMapPoint(pointToSelect);
+        }
+
+        private void OnDeleteRequested(MapPoint pointToDelete) {
+            map1.MapPoints.Remove(pointToDelete);
+            UpdateMapPoints();
+            Refresh();
         }
     }
 }
