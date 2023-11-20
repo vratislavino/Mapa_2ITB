@@ -23,6 +23,9 @@ namespace Mapa_2ITB
 
         public void Setup(MapPoint mapPoint) {
             this.mapPoint = mapPoint;
+
+            mapPoint.MapPointSelected += OnMapPointSelected;
+
             label1.Text = mapPoint.name;
             label2.Text = mapPoint.point.X + ":" + mapPoint.point.Y;
 
@@ -33,6 +36,10 @@ namespace Mapa_2ITB
                 pct.Size = new Size(50, 50);
                 flowLayoutPanel1.Controls.Add(pct);
             }
+        }
+
+        private void OnMapPointSelected(MapPoint point, bool selected) {
+            this.BackColor = selected ? Color.Yellow : Color.White;
         }
 
         private void button2_Click(object sender, EventArgs e) {

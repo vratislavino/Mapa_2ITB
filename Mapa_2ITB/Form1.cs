@@ -18,6 +18,8 @@ namespace Mapa_2ITB
                 mapPointView.SelectRequested += OnSelectRequested;
                 flowLayoutPanel1.Controls.Add(mapPointView);
             });
+
+            map1.SavePoints();
         }
 
         private void OnSelectRequested(MapPoint pointToSelect) {
