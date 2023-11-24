@@ -8,7 +8,7 @@ using System.Drawing;
 namespace Mapa_2ITB
 {
     public class MapPoint
-    {
+    { 
         public event Action<MapPoint, bool> MapPointSelected;
 
         public Point point;
